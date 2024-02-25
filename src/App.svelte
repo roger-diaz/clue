@@ -8,7 +8,7 @@
 
 <div class="flex flex-col min-h-screen">
   <header class="flex flex-col">
-    <img src="/images/clue.png" alt="title" class="" />
+    <img src="images/clue.png" alt="title" class="" />
   </header>
   <main class="grow">
     <List values={persons} title="Quien?" />
