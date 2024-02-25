@@ -10,10 +10,10 @@
   <header class="flex flex-col">
     <img src="images/clue.png" alt="title" class="" />
   </header>
-  <main class="grow">
-    <List values={persons} title="Quien?" />
-    <List values={weapons} title="Con que?" />
-    <List values={places} title="Donde?" />
+  <main class="grow  bg-white dark:bg-black">
+    <List values={persons} title="Quien?" type="person" />
+    <List values={weapons} title="Con que?"  type="weapon" />
+    <List values={places} title="Donde?"  type="place" />
   </main>
   <footer class="flex content-center bg-blue-700 text-gray-300 p-2">
     <h3 class="italic">Creado por Roger Diaz B.</h3>
