@@ -1,15 +1,21 @@
 <script>
-    export let type;
+  import App from "../App.svelte";
+
     export let value;
-    export let index;
+    export let width = "12";
+    export let height = "12";
+    export let rounded = true;
     let checked = false;
-    $: color = (checked)? "text-blue-600" : "text-gray-900";
-    $: darkColor = (checked)? "text-blue-600" : "text-gray-200";
+    $: color = (checked)? "grayscale" : "grayscale-0";
+    $: decoration = (checked)? "line-through" : "";
+    $: roundedClass = (rounded)? "rounded-full": "";
+
+    function select() {
+        checked = !checked
+    }
 </script>
 
-<li class="w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600">
-    <div class="flex items-center ps-3">
-        <input id="{type}-{index}" type="checkbox" bind:checked={checked} class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:{darkColor} dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-        <label for="{type}-{index}" class="w-full py-3 ms-2 text-sm font-medium {color} dark:{darkColor}">{value}</label>
-    </div>
-</li>
+<button on:click={select} class="w-24 flex flex-col items-center content-center">
+    <img class="w-{width} h-{height} border {roundedClass} {color}" src="images/{value.toLowerCase()}.png" alt="" />
+    <span class="text-black dark:text-white text-xs text-wrap {decoration}">{value}</span>
+</button>
